@@ -1,0 +1,16 @@
+{% extends 'admin/adminTemplate.html' %}
+{% load static %}
+{% block title %}
+Delete item Page
+{% endblock %}
+{% block content %}
+<div id="deletContent">
+    Are you sure want to Perform this action?
+    <img src="{% static 'empty.png' %}"/>
+    <p><form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" id="btn-yes">Yes</button>
+        <a href="{% url 'allUsersPage' %}"><button type="button" id="btn-cancel">Cancel</button></a></form></p>
+</div>
+
+{% endblock %}

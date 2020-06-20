@@ -1,0 +1,46 @@
+{% extends 'users/usersTemplate.html' %}
+{% block title %}
+Login Up
+{% endblock %}
+{% block content %}
+<div id="signUpDiv">
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td colspan="2" class="header_text">
+                {% block pageTitle %}
+                User Login
+                {% endblock %}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="error">
+                {% if error %}
+                {{ error }}
+                {% endif %}
+            </td>
+        </tr>
+        {% for fields in form %}
+        <tr>
+            <td>{{ fields.label }}</td>
+            <td> {{ fields }} <br/>
+                {% if fields.errors %}
+               <small> {{ fields.errors }}</small>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td><td><input type="submit"  value="Login" class="button"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="signupLink">Have no Account? <a href="{% url 'signUpPage' %}">Sign up here</a> </td>
+        </tr>
+    </table>
+
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'hub/hubTemplate.html' %}
+{% block title %}
+Edit
+{% endblock %}
+{% block content %}
+<div class="uploadDiv">
+    <p id="headerText"><small>Fill all Fields to Submit Upload</small></p>
+    <p id="successText">
+    {% if success %}
+    {{ success }}
+    {% endif %}
+    </p>
+
+    <table id="uploadTable" cellspacing="0">
+        <form action="" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+        {% for fields in form %}
+        <tr>
+            <td>{{ fields.label }}</td>
+            <td> {{ fields }}<br/>
+            {% if fields.errors %}
+            <small>{{ fields.errors }}</small>
+            {% endif %}</td>
+        </tr>
+        {% endfor %}
+          <tr>
+        <td></td>
+        <td id="buttonTd">
+            <input type="submit" id="submitButton" value="Update"/>
+            <a href="{% url 'allUploadsPage' %}"><input type="button" id="discardButton" value="Cancel"></a>
+
+        </td>
+        </tr>
+         </form>
+    </table>
+</div>
+{% endblock %}

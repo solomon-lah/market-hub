@@ -1,0 +1,34 @@
+{% extends 'admin/adminTemplate.html' %}
+{% block title %}
+Admin View All users
+{% endblock %}
+{% block content %}
+<div id="allUploadTableWrapper">
+<table cellspacing="0" id="allUploadTable">
+    <tr>
+        <td>Email Address</td>
+        <td> Names</td>
+        <td>Phone Number</td>
+        <td>Gender</td>
+        <td>Address</td>
+        <td>Status</td>
+        <td>Profile Picture</td>
+        <td>Suspend</td>
+    </tr>
+    {% for rows in userDetails %}
+     <tr>
+        <td>{{ rows.email }}</td>
+        <td>{{ rows.surname }} {{ rows.firstname }}</td>
+        <td>{{ rows.phoneNumber }}</td>
+        <td>{{ rows.gender }}</td>
+        <td>{{ rows.address }}</td>
+        <td>{{ rows.status }} </td>
+        <td><a href="{{ rows.img.url }}" target="_blank"> <button>View</button></a></td>
+        <td>
+            <a href="{% url 'restoreUserPage' rows.id %}"> <button id="suspend-btn">Restore</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

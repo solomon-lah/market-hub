@@ -1,0 +1,32 @@
+{% extends 'hub/hubTemplate.html' %}
+{% block title %}
+Edit Profile Page
+{% endblock %}
+{% block content %}
+<div id="profileWrapper">
+    <div id="profileDiv">
+       <p id="headerText">User / Edit Profile</p>
+       <form action="" method="post">
+        <table id="editProfileTable">
+           {% csrf_token %}
+           {% for fields in form %}
+           <tr>
+               <td>{{ fields.label }}</td>
+               <td>{{ fields }} <br/>
+                 {% if fields.errors %}
+                   fields.errors
+                 {% endif %}
+               </td>
+           </tr>
+           {% endfor %}
+            <tr>
+                <td></td>
+                <td id="button-td"><button type="submit" id="submit-btn">Update</button>
+                <a href="{% url 'profilePage' %}"><button type="button" id="discard-btn">Discard</button> </a></td>
+            </tr>
+       </table>
+       </form>
+    </div>
+</div>
+
+{% endblock %}

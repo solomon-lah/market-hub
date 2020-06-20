@@ -1,0 +1,36 @@
+{% extends 'hub/hubTemplate.html' %}
+{% block title %}
+Item Details
+{% endblock %}
+{% block content %}
+<div id="itemDetails">
+    <img src="{{ item.img_1.url }}"/>
+    <img src="{{ item.img_2.url }}"/>
+    <table cellspacing="0">
+
+        <tr>
+            <td><strong>Product Name</strong></td>
+            <td>{{ item.itemName }}</td>
+        </tr>
+        <tr>
+            <td><strong>Price</strong></td>
+            <td>{{ item.itemPrice }}</td>
+        </tr>
+        <tr>
+            <td><strong>Description</strong></td>
+            <td>{{ item.description }}</td>
+        </tr>
+        <tr>
+            <td><strong>Date Uploaded</strong></td>
+            <td>{{ item.dateUploaded }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="button_td"><a href="{% url 'editItemPage' item.id %}"><button id="edit-btn">Edit</button></a>
+                <a href="{% url 'deleteItemPage' item.id %}"><button id="remove-btn">Delete</button></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

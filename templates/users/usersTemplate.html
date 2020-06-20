@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+            Welcome To Our Portal
+           {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        body{background-color:rgba(0,0,255,0.2)}
+        #header_wrapper{background-image:url(' {% static "back.jpg" %}');background-size:10% 100%;background-repeat:repeat
+        }
+        #header_wrapper #header{background-color:rgba(0,0,0,0.6);color:white;font-family:verdana;padding:10px}
+        #header_wrapper #siteName{font-size:25px;font-family:georgia;font-weight:bolder;display:inline-block;width:40%}
+        #header_wrapper #links{font-family:georgia;display:inline-block;width:50%;text-align:right}
+        #header_wrapper li{list-style-type:none;color:white;margin:10px;display:inline-block}
+        #header_wrapper li:hover{color:blue;font-weigh:bolder;text-decoration:underline}
+        #signUpDiv{width:40%;padding:10px;background-color:white;border-radius:5px;box-shadow:0px 0px 2px black;margin:auto;
+        margin-top:20px;text-align:center}
+        #signUpDiv table{width:80%;font-family:verdana;font-size:14px;padding:10px}
+        #signUpDiv table td{text-align:justify;vertical-align:text-top}
+        #signUpDiv .textField{width:100%;height:25px;padding:10px;margin:10px;resize:none;vertical-align:text-top;margin-top:0px}
+        #signUpDiv .selectField{width:100%;height:35px;margin:10px;resize:none;vertical-align:text-top;margin-top:0px}
+        #signUpDiv li{color:red;list-style-type:none}
+        #signUpDiv .header_text{color:rgba(0,10,255,0.8);font-weight:bolder;margin-bottom:15px}
+        #signUpDiv .button{width:100%;background-color:rgba(0,10,255,0.8);color:white;padding:15px;border:0px;margin:10px;
+        margin-left:8%}
+        #signUpDiv .error{color:red;text-align:center;font-weight:bolder}
+        #signUpDiv #signupLink{text-align:right;font-size:13px;font-family:georgia}
+        #signUpDiv #signupLink a:link, #signUpDiv #signupLink a:visited{color:blue;text-decoration:none}
+        .postDiv{width:20%;resize:none;display:inline-block;background-color:white;padding:15px;margin:5px;text-align:center;
+        color:black;font-family:georgia;margin-top:10px;box-shadow:0px 0px 1px black}
+        .postDiv img{width:90%;height:200px;margin:auto;margin-bottom:10px}
+        #viewPost{width:60%;margin:15px;display:inline-block;padding:20px;background-color:white;font-family:verdana;
+        vertical-align:text-top}
+        #viewPost .title{color:rgba(147,104,211,0.8);font-weight:bolder;font-size:25px;text-transform:uppercase}
+        #viewPost .dateUploaded{color:gray;font-family:georgia;}
+        #viewPost img{width:40%;height:200px;display:inline-block;margin:10px}
+        #stylistDiv{width:30%;margin:15px;background-color:white;display:inline-block;padding:10px;vertical-align:text-top;
+        font-family:verdana}
+         #stylistDiv #name_p{margin-left:8%}
+        #stylistDiv img{width:80%;height:200px;resize:none;margin:auto;margin-left:8%}
+        #stylistDiv table{width:80%margin:auto;margin-left:8%;}
+        #stylistDiv table td{padding:5px}
+        #homePage{width:98%;margin:auto;background-color:white;box-shadow:0px 0px 1px black;margin-top:10px;padding:5px}
+        #welcomeDivWrapper{background-image:url('{% static "hub.jpg" %}');background-size:100% 100%;background-repeat:no-repeat;
+        height:300px;width:100%;position:relative;resize:none;vertical-align:text-top}
+        #welcomeDiv{background-color:rgba(0,0,0,0.7);width:100%;height:100%;}
+        #welcomeDiv #dominant_p{width:100%;text-align:center;color:white;font-size:40px;padding-top:5%;font-weight:bolder;
+        font-family:verdana;}
+        #welcomeDiv p{font-size:17px;font-family:georgia;text-align:right;width:40%;margin:auto;margin-top:10px}
+        .subDiv{width:30%;padding:10px;text-align:center;margin:10px;vertical-align:text-top;font-family:verdana;
+        display:inline-block}
+        .subDiv .headerText{font-weight:bolder;font-size:20px}
+        .subDiv a:link, .subDiv a:visited{color:blue;font-weight:bolder;text-decoration:none}
+
+    </style>
+</head>
+<body>
+{% block link %}
+<div id="header_wrapper">
+    <div id="header">
+        <div id="siteName">
+           FEDPOFFA MARKET HUB
+        </div>
+        <div id="links">
+            <a href="{% url 'startPage' %}"><li>Home</li></a>
+
+            <a href="{% url 'loginPage' %}"><li>Login</li></a>
+            <a href="{% url 'signUpPage' %}"><li>Sign Up</li></a>
+            <a href=""><li>About</li></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div id="homePage">
+    <div id="welcomeDivWrapper">
+        <div id="welcomeDiv">
+            <div id="dominant_p">FEDPOFFA MARKET HUB<br/>
+            <p>.. for convenient buying and selling</p></div>
+        </div>
+    </div>
+    <div class="subDiv">
+        <p class="headerText">
+            Explore our large collection of Products and services
+        </p>
+        <p>Easily browse through our portal in order to get a particular product or service</p>
+        <a href="">Explore Now</a>
+    </div>
+    <div class="subDiv">
+        <p class="headerText">
+            Login To your Portal
+        </p>
+        <p>Proceed to the login module in order to have access to our portal</p>
+        <a href="{% url 'loginPage' %}">Login now</a>
+    </div>
+    <div class="subDiv">
+        <p class="headerText">
+            Join Our Community
+        </p>
+        <p>Register for free and join our community.
+        Our vision is to become a renowed portal that connects buyers and sellers irrespective of location </p>
+        <a href="{% url 'signUpPage' %}">Register For Free</a>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

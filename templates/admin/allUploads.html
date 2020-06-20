@@ -1,0 +1,16 @@
+{% extends 'admin/adminTemplate.html' %}
+{% block title %}
+Admin View All uploads
+{% endblock %}
+{% block content %}
+<div id="hubWrapper">
+{% for items in allUploads %}
+ <a href="{% url 'adminItemDetailsPage' items.id %}">
+    <div class="eachUpload">
+    <img src="{{ items.img_1.url }}"/>
+     <p>{{ items.itemName }}</p>
+   </div>
+</a>
+{% endfor %}
+</div>
+{% endblock %}

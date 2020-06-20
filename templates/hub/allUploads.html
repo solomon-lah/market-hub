@@ -1,0 +1,28 @@
+{% extends 'hub/hubTemplate.html' %}
+{% block title %}
+All Uploads
+{% endblock %}
+{% block content %}
+<div id="allUploadTableWrapper">
+<table cellspacing="0" id="allUploadTable">
+    <tr>
+        <td>Item Name</td>
+        <td> Price (#)</td>
+        <td>Description</td>
+        <td>Category</td>
+        <td>Date Uploaded</td>
+        <td>View</td>
+    </tr>
+    {% for rows in allUploads %}
+     <tr>
+        <td>{{ rows.itemName }}</td>
+        <td>{{ rows.itemPrice }}</td>
+        <td>{{ rows.description }}</td>
+        <td>{{ rows.category }}</td>
+        <td>{{ rows.dateUploaded }}</td>
+        <td><a href="{% url 'individualItemPage' rows.id %}"> <button>View</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

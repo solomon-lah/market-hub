@@ -1,0 +1,52 @@
+{% extends 'admin/adminTemplate.html' %}
+{% block title %}
+Item Details
+{% endblock %}
+{% block content %}
+<div id="itemDetails">
+    <img src="{{ itemDetails.img_1.url }}"/>
+    <img src="{{ itemDetails.img_2.url }}"/>
+    <table cellspacing="0">
+
+        <tr>
+            <td><strong>Product Name</strong></td>
+            <td>{{ itemDetails.itemName }}</td>
+        </tr>
+        <tr>
+            <td><strong>Price</strong></td>
+            <td>{{ itemDetails.itemPrice }}</td>
+        </tr>
+        <tr>
+            <td><strong>Description</strong></td>
+            <td>{{ itemDetails.description }}</td>
+        </tr>
+        <tr>
+            <td><strong>Date Uploaded</strong></td>
+            <td>{{ itemDetails.dateUploaded }}</td>
+        </tr>
+    </table>
+</div>
+<div id="uploaderDiv">
+    <h4>Uploader Details</h4>
+    <a href="{{ uploaderDetails.img.url }}" target="_blank">
+    <img src="{{ uploaderDetails.img.url }}"/>
+    </a>
+    <table cellspacing="0">
+        <tr>
+            <td><strong>Names</strong></td>
+            <td>{{ uploaderDetails.surname }} {{ uploaderDetails.firstname }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Phone Number</strong></td>
+            <td> {{ uploaderDetails.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <td><strong>Address</strong></td>
+            <td>{{ uploaderDetails.address }}</td>
+        </tr>
+
+    </table>
+
+</div>
+{% endblock %}

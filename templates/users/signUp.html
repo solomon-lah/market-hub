@@ -1,0 +1,62 @@
+{% extends 'users/usersTemplate.html' %}
+{% block title %}
+Sign Up
+{% endblock %}
+{% block content %}
+<div id="signUpDiv">
+{% if initialForm %}
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td colspan="2" class="header_text">Sign up / Step 1 of 2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="error">
+                {% if error %}
+                {{ error }}
+                {% endif %}
+            </td>
+        </tr>
+        {% for fields in initialForm %}
+        <tr>
+            <td>{{ fields.label }}</td>
+            <td> {{ fields }} <br/>
+                {% if fields.errors %}
+               <small> {{ fields.errors }}</small>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td><td><input type="submit" name="initialForm" value="Proceed" class="button"/></td>
+        </tr>
+    </table>
+
+</form>
+{% endif %}
+{% if finalForm %}
+<form action="" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td colspan="2" class="header_text">Sign up / Step 2 of 2</td>
+        </tr>
+        {% for fields in finalForm %}
+        <tr>
+            <td>{{ fields.label }}</td>
+            <td> {{ fields }} <br/>
+                {% if fields.errors %}
+               <small> {{ fields.errors }}</small>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td><td><input type="submit" name="initialForm" value="Complete" class="button"/></td>
+        </tr>
+    </table>
+{% endif %}
+</div>
+{% endblock %}

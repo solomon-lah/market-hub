@@ -1,0 +1,37 @@
+{% extends 'hub/hubTemplate.html' %}
+{% block title %}
+Profile Page
+{% endblock %}
+{% block content %}
+<div id="profileWrapper">
+    <div id="profileDiv">
+        <img src="{{ details.img.url }}"/>
+        <p id="hangeProfileP">
+            <form action="" method="post"enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.label }} {{ form }} <input type="submit" value="change" id="update-btn"/>
+            </form>
+        </p>
+        <table>
+            <tr>
+                <td>Names</td>
+                <td> {{ details.surname }} {{ details.firstname }}</td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td>{{ details.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td> {{ details.address }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="{% url 'editProfilePage' %}" style="color:blue"><span class="fa fa-edit"></span> Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

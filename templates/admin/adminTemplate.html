@@ -1,0 +1,44 @@
+{% extends 'hub/hubTemplate.html'%}
+{% block title %}
+Admin Homepage
+{% endblock %}
+{% block links %}
+<div id="linksDivCover">
+<div id="linksDiv">
+    <h3>ADMIN PORTAL</h3>
+<table cellspacing="0">
+    <tr>
+        <td class="span"><span class="fa fa-dashboard"></span></td>
+        <td><a href="{% url 'adminHomePage' %}"><li>Dashboard</li></a></td>
+    </tr>
+            <tr>
+        <td class="span"><span class="fa fa-message"></span></td>
+        <td><a href="{% url 'reportsPage' %}"><li>Reports / Help</li></a></td>
+    </tr>
+        <tr>
+        <td class="span"><span class="fa fa-upload"></span></td>
+        <td><a href="{% url 'adminAllUploadsPage' %}"><li>All Uploads</li></a></td>
+    </tr>
+
+    <tr>
+        <td class="span"><span class="fa fa-users"></span></td>
+        <td><a href="{% url 'allSuspendedUserPage' %}"><li>Restore Users</li></a></td>
+    </tr>
+    <tr>
+        <td class="span"><span class="fa fa-users"></span></td>
+        <td><a href="{% url 'allUsersPage' %}"><li>All Users</li></a></td>
+    </tr>
+    <tr>
+        <td class="span"><span class="fa fa-gears"></span></td>
+        <td><a href=""><li> Change Password</li></a></td>
+    </tr>
+     <tr>
+        <td class="span"><span class="fa fa-power-off"></span></td>
+        <td><a href=""><li>Log out</li></a></td>
+    </tr>
+</table>
+</div>
+</div>
+{% endblock %}
+{% block content %}
+ {% endblock %}

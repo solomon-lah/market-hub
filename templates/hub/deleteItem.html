@@ -1,0 +1,16 @@
+{% extends 'hub/hubTemplate.html' %}
+{% load static %}
+{% block title %}
+Delete item Page
+{% endblock %}
+{% block content %}
+<div id="deletContent">
+    Are you sure want to delete Item?
+    <img src="{% static 'empty.png' %}"/>
+    <p><form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" id="btn-del">Delete</button>
+        <a href="{% url 'individualItemPage' itemId %}"><button type="button" id="btn-cancel">Cancel</button></a></form></p>
+</div>
+
+{% endblock %}
